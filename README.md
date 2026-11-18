@@ -8,6 +8,17 @@ Use the models from your locally logged-in **Cursor** desktop app directly in [D
 >
 > Unofficial. The protocol is reverse-engineered from Cursor's private `agent.v1.AgentService/Run` (ConnectRPC + Protobuf + HTTP/2 bidirectional stream). Not affiliated with Cursor (Anysphere) or DeepSeek. For personal study/research only.
 
+## ⚠️ Risk disclosure
+
+Please read this before installing.
+
+- **Private, reverse-engineered protocol.** The plugin talks to Cursor's proprietary `agent.v1.AgentService/Run` (ConnectRPC + Protobuf + HTTP/2). It is not an official Cursor API. A Cursor update may change the wire format or field numbers at any time, which can break the plugin or make it behave unexpectedly until re-verified.
+- **Sensitive credentials.** The plugin reads your local Cursor login (a JWT): the `cursor-safe-storage:v1` value in `state.vscdb` (decrypted via the OS keychain / DPAPI) or `auth.json`, and can also accept a token from the settings page or environment variables. Tokens are never written to config files or logs, and the settings page's JSON API never returns the plaintext token — but any local process running as you can read the same sources.
+- **Cursor server access.** The plugin calls Cursor's servers (e.g. `api2.cursor.sh`, the agent host) with your account's token, consuming your Cursor quota.
+- **Not audited or endorsed.** The plugin marketplace (DSHX) does not audit listed plugins and does not endorse their behavior. Review the source and the risks yourself.
+
+> Use at your own risk, in compliance with Cursor's terms of service; for personal study and research only.
+
 ## Improvements over the original
 
 | Capability | Description |

@@ -30,9 +30,12 @@ Zero configuration by default — the plugin reads your local Cursor login and d
 
 Tested end-to-end on **DSH 0.2.2-rc.3** (desktop): install, activation, credential decryption, live model catalog (47 models), and a real `agent.v1.AgentService/Run` turn. **DSH 0.1.x is untested**, and the peer range reflects that (`@deepseek-ai/dsh-llm: ^0.2.2-rc.2`).
 
-## ⚠️ Limitations
+## ⚠️ Risk disclosure
 
-- Private protocol, reverse-engineered — Cursor may change it without notice.
+- **Private, reverse-engineered protocol.** Talks to Cursor's proprietary `agent.v1.AgentService/Run`; not an official API. A Cursor update may change the wire format and break the plugin until re-verified.
+- **Sensitive credentials.** Reads your local Cursor JWT (decrypting `cursor-safe-storage:v1` via the OS keychain/DPAPI, or `auth.json`) or accepts one from the settings page/env. Never written to config or logs; the settings API never returns the plaintext — but any process running as you can read the same sources.
+- **Cursor server access.** Calls Cursor's servers with your token, consuming your Cursor quota.
+- **Not audited or endorsed.** The marketplace (DSHX) does not audit plugins or endorse their behavior. Review the source and risks yourself.
 - Emits text/reasoning streams only; no dsh-side tool calls (Cursor runs its own agent loop); `tools` is off by default.
 - Token usage may be empty when Cursor omits `turn_ended`.
 
@@ -72,9 +75,12 @@ dsh plugin --profile web add /path/to/dsh-connect-cursor-pro
 
 已在 **DSH 0.2.2-rc.3**（桌面版）完成端到端验证：安装、激活、凭据解密、实时模型目录（47 个模型）、一次真实 `agent.v1.AgentService/Run` 回合。**DSH 0.1.x 未测试**，peer 范围已如实反映（`@deepseek-ai/dsh-llm: ^0.2.2-rc.2`）。
 
-## ⚠️ 已知限制
+## ⚠️ 风险披露
 
-- 协议私有、逆向实现——Cursor 可能随时变更。
+- **私有、逆向协议。** 通过 Cursor 私有的 `agent.v1.AgentService/Run` 通信，并非官方 API。Cursor 升级可能改变线路格式，需重新核对。
+- **敏感凭证。** 读取本机 Cursor JWT（解密 `cursor-safe-storage:v1`，经系统密钥库/DPAPI，或读 `auth.json`），也可由设置页/环境变量提供。令牌不写配置、不打日志，设置 API 不回传明文；但以你的身份运行的本地进程同样能读取这些来源。
+- **访问 Cursor 服务端。** 使用你账号的令牌请求 Cursor 服务器，消耗你的 Cursor 额度。
+- **未经审计、非官方认可。** 插件市场（DSHX）不对上架插件做安全审计，也不代表官方认可插件行为。请自行审阅源码与风险后再使用。
 - 仅输出文本/推理流，不向 dsh 发出工具调用（Cursor 跑自己的 agent 循环）；`tools` 默认关闭。
 - Cursor 不总发 `turn_ended`，token 用量可能为空。
 

@@ -16,6 +16,13 @@ Use the models from your locally logged-in **Cursor** desktop app directly in **
 - **Settings page** — a "Connect Cursor" section under Settings shows credential status, the live model catalog, and diagnostics.
 - **Configurable endpoints and timeouts** via bundle config or environment variables.
 
+## ⚠️ Risk disclosure
+
+- **Private, reverse-engineered protocol.** Talks to Cursor's proprietary `agent.v1.AgentService/Run` (ConnectRPC + Protobuf + HTTP/2), not an official Cursor API. A Cursor update may change the wire format or field numbers and break the plugin until re-verified.
+- **Sensitive credentials.** Reads your local Cursor JWT — the `cursor-safe-storage:v1` value in `state.vscdb` (decrypted via the OS keychain / DPAPI) or `auth.json` — or accepts one from the settings page / environment. Tokens are never written to config or logs and the settings API never returns the plaintext, but any local process running as you can read the same sources.
+- **Cursor server access.** Calls Cursor's servers (e.g. `api2.cursor.sh`, the agent host) with your account's token, consuming your Cursor quota.
+- **Not audited or endorsed.** The plugin marketplace (DSHX) does not audit listed plugins and does not endorse their behavior. Review the source and the risks yourself.
+
 ## Usage
 
 1. Install and enable the plugin, then restart DSH.

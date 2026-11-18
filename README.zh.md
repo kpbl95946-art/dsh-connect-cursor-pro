@@ -8,6 +8,17 @@
 >
 > 非官方。协议逆向自 Cursor 的 `agent.v1.AgentService/Run` 私有协议（ConnectRPC + Protobuf + HTTP/2 双向流），与 Cursor（Anysphere）、DeepSeek 均无关联，仅供个人学习研究。
 
+## ⚠️ 风险披露
+
+安装前请阅读。
+
+- **私有、逆向协议。** 本插件通过 Cursor 私有的 `agent.v1.AgentService/Run`（ConnectRPC + Protobuf + HTTP/2）通信，并非官方 Cursor API。Cursor 一旦升级，线路格式或字段号可能随时变化，导致插件失效或行为异常，需重新核对。
+- **敏感凭证。** 插件读取本机 Cursor 登录态（JWT）：`state.vscdb` 中以 `cursor-safe-storage:v1` 加密存储的值（经系统密钥库 / DPAPI 解密），或 `auth.json`；也可由设置页或环境变量提供。令牌不会写入配置文件、不会打日志，设置页的 JSON API 也绝不回传明文 token；但请注意，以你的身份运行的任何本地进程同样能读取这些来源。
+- **访问 Cursor 服务端。** 插件会使用你账号的令牌请求 Cursor 的服务器（如 `api2.cursor.sh`、agent 主机），消耗你的 Cursor 额度。
+- **未经审计、非官方认可。** 插件市场（DSHX）不对上架插件做安全审计，也不代表官方认可插件的行为。请自行审阅源码与风险后再使用。
+
+> 风险自负，并遵守 Cursor 服务条款；仅供个人学习研究。
+
 ## 相比旧版的改进
 
 | 能力 | 说明 |
