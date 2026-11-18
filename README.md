@@ -134,6 +134,7 @@ The client version prefers the build directory name under `%LOCALAPPDATA%\cursor
 
 ## Known limitations
 
+- **Tested on DSH 0.2.2-rc.3 only.** The adapter is implemented structurally (no `LlmAdapter` base class import), so it is designed to be kernel-tolerant, but only 0.2.2-rc.3 has been verified end-to-end (install, activation, credential decryption, model catalog, and a live Run turn); DSH 0.1.x is untested.
 - Private protocol with version gating: `x-cursor-client-version` must be a `cli-YYYY.MM.DD-sha` build tag (auto-detected, overridable via `CURSOR_CLI_VERSION`); after a Cursor upgrade field numbers may change — re-verify with `lib/schema.js` `inspectType('agent.v1.AgentRunRequest')`
 - `model_details.model_id` must be the default variant slug (e.g. `claude-sonnet-5-thinking-high`); a base id is rejected with `ERROR_BAD_MODEL_NAME`
 - `UserMessageAction` must carry `request_context` (otherwise the server only sends heartbeats, no output)

@@ -134,6 +134,7 @@ macOS / Windows / Linux（Windows 已实测）。安装位置按「PATH 上的 `
 
 ## 已知限制
 
+- **仅在 DSH 0.2.2-rc.3 上实测。** 适配器为结构性实现（不继承 `LlmAdapter` 基类），设计上可跨内核版本，但只有 0.2.2-rc.3 完成过端到端验证（安装、激活、凭据解密、模型目录、一次真实 Run 回合）；DSH 0.1.x 未测试。
 - 协议私有、版本门控：`x-cursor-client-version` 必须是 `cli-YYYY.MM.DD-sha` 构建标签（自动识别，可用 `CURSOR_CLI_VERSION` 覆盖）；Cursor 升级后字段号可能变化，可用 `lib/schema.js` 的 `inspectType('agent.v1.AgentRunRequest')` 重新核对
 - `model_details.model_id` 必须是默认 variant 的 slug（如 `claude-sonnet-5-thinking-high`），基础 id 会被拒为 `ERROR_BAD_MODEL_NAME`
 - `UserMessageAction` 必须带 `request_context`（缺了服务端只发心跳不产出）

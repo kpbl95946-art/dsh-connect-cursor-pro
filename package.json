@@ -39,7 +39,7 @@
   },
   "peerDependencies": {
     "@deepseek-ai/cordis": "^4.0.2",
-    "@deepseek-ai/dsh-llm": "^0.1.7-rc.1 || ^0.2.0-rc.1"
+    "@deepseek-ai/dsh-llm": "^0.2.2-rc.2"
   },
   "peerDependenciesMeta": {
     "@deepseek-ai/cordis": {
@@ -48,6 +48,9 @@
     "@deepseek-ai/dsh-llm": {
       "optional": true
     }
+  },
+  "devDependencies": {
+    "@deepseek-ai/dsh-llm": "0.2.2-rc.3"
   },
   "engines": {
     "node": "^22.19.0 || >=24.0.0"
@@ -59,5 +62,13 @@
     "connect",
     "llm"
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kpbl95946-art/dsh-connect-cursor-pro.git"
+  },
+  "homepage": "https://github.com/kpbl95946-art/dsh-connect-cursor-pro",
+  "bugs": {
+    "url": "https://github.com/kpbl95946-art/dsh-connect-cursor-pro/issues"
+  }
 }
