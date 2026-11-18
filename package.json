@@ -1,0 +1,63 @@
+{
+  "name": "dsh-connect-cursor-pro",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Use the models from your locally logged-in Cursor desktop app directly in DeepSeek Harness — native LlmAdapter over Cursor's agent.v1 Run protocol, with multi-turn continuity and client-version auto-detection.",
+  "main": "./index.js",
+  "exports": {
+    ".": "./index.js",
+    "./adapter": "./lib/adapter.js",
+    "./client": "./client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "icon": "./icon.svg",
+  "files": [
+    "index.js",
+    "client.js",
+    "lib",
+    "cordis.patch.yml",
+    "locale",
+    "docs",
+    "icon.svg",
+    "README.md",
+    "README.zh.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "node --test test/"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": []
+    }
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "^4.0.2",
+    "@deepseek-ai/dsh-llm": "^0.1.7-rc.1 || ^0.2.0-rc.1"
+  },
+  "peerDependenciesMeta": {
+    "@deepseek-ai/cordis": {
+      "optional": true
+    },
+    "@deepseek-ai/dsh-llm": {
+      "optional": true
+    }
+  },
+  "engines": {
+    "node": "^22.19.0 || >=24.0.0"
+  },
+  "keywords": [
+    "deepseek-harness",
+    "dsh-plugin",
+    "cursor",
+    "connect",
+    "llm"
+  ],
+  "license": "MIT"
+}

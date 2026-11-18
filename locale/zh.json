@@ -1,0 +1,7 @@
+{
+  "meta": {
+    "title": "接入 Cursor",
+    "description": "把本机已登录的 Cursor 桌面端模型直接接入 DeepSeek Harness，无需单独配置密钥。原生 LlmAdapter 直连 Cursor agent 协议，支持多轮对话续接与客户端版本自动识别。",
+    "detail": "docs/DETAIL.md"
+  }
+}

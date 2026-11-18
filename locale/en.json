@@ -1,0 +1,7 @@
+{
+  "meta": {
+    "title": "Connect Cursor",
+    "description": "Use the models from your locally logged-in Cursor desktop app directly in DeepSeek Harness — no separate API key. A native LlmAdapter over Cursor's agent protocol, with multi-turn continuity and automatic client-version detection.",
+    "detail": "docs/DETAIL.md"
+  }
+}

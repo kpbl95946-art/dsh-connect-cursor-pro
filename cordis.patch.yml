@@ -1,0 +1,9 @@
+# dsh-connect-cursor-pro bundle patch.
+#
+# One insert mounts the Host half: the Cursor LlmAdapter on the `cursor` route.
+# The default profile model is left untouched; the plugin reuses the local
+# Cursor desktop/CLI login and starts no extra OAuth flow.
+- insert:
+    - id: dsh-connect-cursor-pro
+      name: dsh-connect-cursor-pro
+      config: {}
