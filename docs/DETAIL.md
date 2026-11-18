@@ -34,6 +34,10 @@ Use the models from your locally logged-in **Cursor** desktop app directly in **
 - The adapter streams text and reasoning. DSH-side tool calls are **not** emitted (Cursor runs its own agent loop); tool forwarding is off by default.
 - Token usage may be empty when Cursor omits `turn_ended`.
 
+## Feedback
+
+Found a bug or have a suggestion? Please open an [issue](https://github.com/kpbl95946-art/dsh-connect-cursor-pro/issues) — the author loves learning!
+
 ## See also
 
 The full README documents credential sources, environment variables, configuration keys, and troubleshooting.

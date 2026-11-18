@@ -7,6 +7,8 @@ Use the models from your locally logged-in **Cursor** desktop app directly in [D
 > This is the **Pro** fork of the community plugin `greatyao/dsh-connect-cursor`: built on the original protocol implementation, adapted and enhanced for the new dsh (0.2 kernel) and new Cursor.
 >
 > Unofficial. The protocol is reverse-engineered from Cursor's private `agent.v1.AgentService/Run` (ConnectRPC + Protobuf + HTTP/2 bidirectional stream). Not affiliated with Cursor (Anysphere) or DeepSeek. For personal study/research only.
+>
+> Found a bug or have a suggestion? Please open an [issue](https://github.com/kpbl95946-art/dsh-connect-cursor-pro/issues) — the author loves learning!
 
 ## ⚠️ Risk disclosure
 
@@ -161,6 +163,10 @@ node --test test/
 ## Disclaimer
 
 For personal study and research only. You are responsible for complying with Cursor's terms of service; use at your own risk.
+
+## Feedback
+
+Found a bug or have a suggestion? Please open an [issue](https://github.com/kpbl95946-art/dsh-connect-cursor-pro/issues) — the author loves learning!
 
 ## License
 

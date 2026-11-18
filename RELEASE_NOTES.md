@@ -43,6 +43,10 @@ Tested end-to-end on **DSH 0.2.2-rc.3** (desktop): install, activation, credenti
 
 MIT © kpbl95946-art. See [NOTICE](NOTICE.md) for upstream attribution.
 
+## 💬 Feedback
+
+Found a bug or have a suggestion? Please open an [issue](https://github.com/kpbl95946-art/dsh-connect-cursor-pro/issues) — the author loves learning!
+
 ---
 
 # 中文说明
@@ -87,3 +91,7 @@ dsh plugin --profile web add /path/to/dsh-connect-cursor-pro
 ## 📄 许可证
 
 MIT © kpbl95946-art。上游署名见 [NOTICE](NOTICE.md)。
+
+## 💬 反馈
+
+有问题或建议？欢迎提 [Issue](https://github.com/kpbl95946-art/dsh-connect-cursor-pro/issues)——作者热爱学习！！！

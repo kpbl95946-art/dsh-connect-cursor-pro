@@ -7,6 +7,8 @@
 > 这是社区插件 `greatyao/dsh-connect-cursor` 的 **Pro 版**：基于旧版协议实现，针对新版 dsh（0.2 内核）与新版 Cursor 做了适配与增强。
 >
 > 非官方。协议逆向自 Cursor 的 `agent.v1.AgentService/Run` 私有协议（ConnectRPC + Protobuf + HTTP/2 双向流），与 Cursor（Anysphere）、DeepSeek 均无关联，仅供个人学习研究。
+>
+> 有问题或建议？欢迎提 [Issue](https://github.com/kpbl95946-art/dsh-connect-cursor-pro/issues)——作者热爱学习！！！
 
 ## ⚠️ 风险披露
 
@@ -161,6 +163,10 @@ node --test test/
 ## 免责声明
 
 仅供个人学习研究使用。使用者需遵守 Cursor 的服务条款，因使用本项目产生的后果由使用者自行承担。
+
+## 反馈
+
+有问题或建议？欢迎提 [Issue](https://github.com/kpbl95946-art/dsh-connect-cursor-pro/issues)——作者热爱学习！！！
 
 ## 许可证
 
