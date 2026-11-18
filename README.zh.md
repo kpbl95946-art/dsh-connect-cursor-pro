@@ -4,7 +4,7 @@
 
 把本机已登录的 **Cursor** 桌面端模型接入 [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness)（`dsh`），在 dsh 的模型选择器里直接使用 Cursor 账号能调用的模型，无需单独配置密钥。
 
-> 这是社区插件 `greatyao/dsh-connect-cursor` 的 **Pro 版**：基于旧版协议实现，针对新版 dsh（0.2 内核）与新版 Cursor 做了适配与增强。
+> 这是社区插件 `greatyao/dsh-connect-cursor` 的 **Pro 版**：在其协议实现基础上，针对新版 dsh（0.2 内核）与新版 Cursor 做了适配与增强。
 >
 > 非官方。协议逆向自 Cursor 的 `agent.v1.AgentService/Run` 私有协议（ConnectRPC + Protobuf + HTTP/2 双向流），与 Cursor（Anysphere）、DeepSeek 均无关联，仅供个人学习研究。
 >
