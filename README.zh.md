@@ -153,4 +153,4 @@ node --test test/
 
 ## 许可证
 
-MIT。基于 [greatyao/dsh-connect-cursor](https://github.com/greatyao/dsh-connect-cursor)（MIT）。
+MIT © kpbl95946-art。上游署名见 [NOTICE](NOTICE.md)。

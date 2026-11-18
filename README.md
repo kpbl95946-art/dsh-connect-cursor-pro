@@ -153,4 +153,4 @@ For personal study and research only. You are responsible for complying with Cur
 
 ## License
 
-MIT. Based on [greatyao/dsh-connect-cursor](https://github.com/greatyao/dsh-connect-cursor) (MIT).
+MIT © kpbl95946-art. See [NOTICE](NOTICE.md) for upstream attribution.
