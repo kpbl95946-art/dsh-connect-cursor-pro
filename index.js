@@ -24,13 +24,37 @@ export const name = 'dsh-connect-cursor-pro'
 export const inject = ['llm']
 
 /**
+ * Best-effort resolution of the DSH session's working directory, which is where
+ * Cursor's file tools should read/write. Live sessions expose `header.cwd`;
+ * fall back to the explicit env override, then the host cwd.
+ */
+function resolveWorkspaceRoot(ctx, sessionId) {
+  try {
+    const sessions = typeof ctx.get === 'function' ? ctx.get('sessions') : undefined
+    const list = sessions?.list?.() || []
+    if (Array.isArray(list) && list.length) {
+      const match = sessionId != null ? list.find((s) => s?.id === sessionId || s?.sessionId === sessionId) : undefined
+      const session = match || list[0]
+      const cwd = session?.header?.cwd
+      if (typeof cwd === 'string' && cwd) return cwd
+    }
+  } catch {
+    /* sessions service unavailable — fall through */
+  }
+  return process.env.CURSOR_WORKSPACE || process.cwd()
+}
+
+/**
  * @param {import('@deepseek-ai/cordis').Context} ctx
  * @param {Record<string, unknown>} [config]
  */
 export function apply(ctx, config = {}) {
   const settings = configure(config)
-  const adapter = new CursorAdapter()
-  const credentials = typeof ctx.get === 'function' ? ctx.get('credentials') : undefined
+  const optional = (name) => (typeof ctx.get === 'function' ? ctx.get(name) : undefined)
+  const resolveWorkspace = (sessionId) => resolveWorkspaceRoot(ctx, sessionId) || settings.workspaceRoot
+  settings.workspaceRoot = resolveWorkspace()
+  const adapter = new CursorAdapter({ attachments: optional('attachments'), resolveWorkspace })
+  const credentials = optional('credentials')
   setCredentialsService(credentials)
 
   // Read-only diagnostics snapshot; the token itself is never stored here.
@@ -119,6 +143,7 @@ export function apply(ctx, config = {}) {
             agentHost: settings.agentHost,
             multiTurn: settings.multiTurn,
             tools: settings.tools,
+            workspaceRoot: settings.workspaceRoot,
             refreshedAt: status.refreshedAt,
           },
         })

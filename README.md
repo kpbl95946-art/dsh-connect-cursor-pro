@@ -32,6 +32,8 @@ Please read this before installing.
 | Configurable endpoints/timeouts | `apiBase`, `agentHost`, `clientVersion`, `timeoutMs`, `idleMs` via config or environment variables |
 | Robust credential chain | env var → `state.vscdb` (auto-decrypted) → CLI `auth.json` → `CURSOR_API_KEY` exchange, with expiry detection |
 | Settings page | A "Connect Cursor" page under Settings: credential status, model catalog, diagnostics, one-click refresh |
+| **Image input** | Forwards composer images to Cursor models as inline `SelectedImage` over the Run protocol (all models accept images, even ones Cursor's catalog flags as `supports_images: false`) |
+| **File tools** | Executes Cursor's built-in `read`/`write`/`ls`/`shell` tool calls in the DSH workspace, so the agent can actually create/edit files and run commands |
 
 ## How it works
 

@@ -14,6 +14,8 @@ Use the models from your locally logged-in **Cursor** desktop app directly in **
 - **Multi-turn continuity** — consecutive turns reuse one Cursor conversation (keyed by session) instead of starting fresh.
 - **Automatic client-version detection** — reads the Cursor agent build tag (`cli-YYYY.MM.DD-sha`) for `x-cursor-client-version` instead of a hard-coded, stale header value.
 - **Settings page** — a "Connect Cursor" section under Settings shows credential status, the live model catalog, and diagnostics.
+- **Image input** — forwards composer images to Cursor models as inline `SelectedImage` (all models accept images, even those flagged `supports_images: false`).
+- **File tools** — executes Cursor's built-in `read`/`write`/`ls`/`shell` tool calls in the DSH workspace, so the agent can create/edit files and run commands instead of hanging on unserved tool calls.
 - **Configurable endpoints and timeouts** via bundle config or environment variables.
 
 ## ⚠️ Risk disclosure

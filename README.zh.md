@@ -32,6 +32,8 @@
 | 可配置端点/超时 | `apiBase`、`agentHost`、`clientVersion`、`timeoutMs`、`idleMs` 等可通过配置或环境变量调整 |
 | 更健壮的凭据链 | 环境变量 → `state.vscdb`（自动解密）→ CLI `auth.json` → `CURSOR_API_KEY` 兑换，带过期检测 |
 | 设置页 | 浏览器侧「设置 → Cursor 接入」页：凭据状态、模型清单、诊断信息与一键刷新 |
+| **图片输入** | 把输入框里的图片以 `SelectedImage` 内联经 Run 协议转发给 Cursor 模型（所有模型都接受图片，即使是目录里标 `supports_images: false` 的） |
+| **文件工具** | 在 DSH 工作区执行 Cursor 内置的 `read`/`write`/`ls`/`shell` 工具调用，让 agent 真正能读写文件、跑命令 |
 
 ## 工作原理
 
